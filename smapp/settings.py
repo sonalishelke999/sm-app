@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-s4@gqp8n1albo*90sbwc846u4m0niaornqe!!a@*-07wz5=_37
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sm-app.azurewebsites.net']
+ALLOWED_HOSTS = ['127.0.0.1','sm-app.azurewebsites.net']
 
 
 # Application definition
@@ -75,8 +75,23 @@ WSGI_APPLICATION = 'smapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'smdb',
+        # 'USER': 'root',
+        # 'PASSWORD': 'sonali@123',
+        # 'HOST': 'localhost',
+        # 'PORT': '3306',
+
+        'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'greetingsapp',
+            'USER': 'sonali',
+            'PASSWORD': 'sonali@123',
+            'HOST': 'greetingsapp.mysql.database.azure.com',
+            'PORT': '3306',
+            'OPTIONS': {
+                'ssl': {'ssl_disabled': True}, 
+            },
+
     }
 }
 
@@ -121,3 +136,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

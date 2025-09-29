@@ -1,1 +1,8 @@
-<H1>Hello Sonali from user app</H1>
+<H1>Hello Enter  User name:</H1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="firstname" placeholder="Your name" required>
+    <input type="file" name="image" accept="image/*"  >
+    <button type="submit">Submit</button>
+</form>
