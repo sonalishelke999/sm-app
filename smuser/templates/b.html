@@ -1,4 +1,5 @@
 
+{% csrf_token %}
 <H1> Hello  {{smuser.firstname }} </H1>
 {% if smuser.image %}
     <img src="{{ smuser.image.url }}" width="150">
